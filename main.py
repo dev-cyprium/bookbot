@@ -1,4 +1,5 @@
 import math
+import sys
 from stats import count_letters, count_words, sort_letters
 
 
@@ -36,9 +37,14 @@ def print_chars(lst):
 
 
 def main():
+    # ARGV
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
     # CONFIG
     software_name = "BOOKBOT"
-    book_path = "./books/frankenstein.txt"
+    book_path = sys.argv[1]
 
     # LOGIC
     book_text = get_book_text(book_path)
